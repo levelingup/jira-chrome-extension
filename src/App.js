@@ -69,31 +69,26 @@ class App extends React.Component {
 
   handleSubmitAbTest(event) {
     event.preventDefault();
-
+  
     const input = this.state.abTestGroup.trim(); // Get the user input and remove leading/trailing whitespace
-
-    const parts = input.split(' '); // Split the input by space
-    if (parts.length === 2) {
-      const [abTestId, abTestGroup] = parts;
-
-      // Get the current tab
-      chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-        if (tabs && tabs.length > 0) {
-          const tab = tabs[0];
-
-          // Modify the URL of the current tab
-          const url = new URL(tab.url);
-          url.searchParams.set('abtest', abTestId);
-          url.searchParams.set('group', abTestGroup);
-
-          // Update the URL of the current tab
-          chrome.tabs.update(tab.id, { url: url.href });
-        }
-      });
-    } else {
-      // Handle invalid input
-      console.log('Invalid input format');
-    }
+  
+    const abTestId = input.slice(0, -1); // Extract the number by removing the last character
+    const abTestGroup = input.slice(-1); // Extract the letter
+  
+    // Get the current tab
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+      if (tabs && tabs.length > 0) {
+        const tab = tabs[0];
+  
+        // Modify the URL of the current tab
+        const url = new URL(tab.url);
+        url.searchParams.set('abtest', abTestId);
+        url.searchParams.set('group', abTestGroup);
+  
+        // Update the URL of the current tab
+        chrome.tabs.update(tab.id, { url: url.href });
+      }
+    });
   }
 
   handleTabClick(tab) {
@@ -149,7 +144,7 @@ class App extends React.Component {
             <div className='App-ab-info'>
             <p>You can switch between group A and B by just typing in the AB test number followed by the group letter, then press enter</p>
             <p>Example:</p>
-            <p>1234 b</p>
+            <p>1234b</p>
             </div>
             <form className="App-form" onSubmit={this.handleSubmitAbTest}>
               <input autoFocus
@@ -158,7 +153,7 @@ class App extends React.Component {
                 name="abtest-group"
                 value={this.state.abTestGroup}
                 onChange={this.handleChangeAbTestGroup}
-                placeholder="1234 b" />
+                placeholder="1234b" />
               <button className="App-submit" type="submit">Submit</button>
             </form>
           </div>
