@@ -140,7 +140,7 @@ class App extends React.Component {
         )}
         {activeTab === 'ab-tests' && (
           <div className='App-main ab-tests'>
-            <h1>AB Tickets</h1>
+            <h1>AB Test</h1>
             <div className='App-ab-info'>
             <p>You can switch between group A and B by just typing in the AB test number followed by the group letter, then press enter</p>
             <p>Example:</p>
