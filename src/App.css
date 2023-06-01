@@ -47,7 +47,6 @@
   border: thin solid #000;
   margin-top: 4px;
 }
-
 .App-submit {
   margin-top: 16px;
   width:100%;
@@ -55,8 +54,24 @@
   color: #fff;
   font-size: 1.1em;
   padding: 10px;
+  cursor: pointer;
 }
-
+.App-submit-split-screen {
+  padding: 0;
+  background-color: white;
+  border-bottom: 2px solid #8484f7;
+  color: blue;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  cursor: pointer;
+  margin-top: 18px;
+}
+.App-split-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .App-report-link {
   margin-top: auto;
   padding: 15px;
