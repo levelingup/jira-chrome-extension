@@ -67,7 +67,7 @@ class App extends React.Component {
     let url = "";
     if (paramsTicket.split(" ").length === 1) {
       // check if the word is within our jira ticket #s
-      if (prefix.some((v) => paramsTicket.includes(v))) {
+      if (prefix.some((v) => paramsTicket.toLowerCase().includes(v))) {
         url = `https://revolve.atlassian.net/browse/${paramsTicket}`;
       } else {
         url = `https://revolve.atlassian.net/issues/?jql=text~"${paramsTicket}"`;
@@ -217,7 +217,7 @@ class App extends React.Component {
               </button>
             </form>
             <p className="App-jira-info">
-              Currently support projects with suffix: 'ab-', 'ac-', 'al-',
+              Currently support projects with prefix: 'ab-', 'ac-', 'al-',
               'an-', 'andro-', 'cs-', 'data-', 'dev-', 'exal-', 'gen-', 'in-',
               'ip-', 'ipf-', 'mar-', 'mer-', 'op-', 'grap-', 'qa-', 'tec-',
               'temp-', 'tr-', 'tri-', 'trm-', 'ux-'
