@@ -1,79 +1,98 @@
 .App {
-  width: 400px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  background-color: #f3f3f3;
+	width: 400px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	background-color: #f3f3f3;
 }
 .App-tab {
-  display: flex;
+	display: flex;
 }
 .App-tab-header {
-  flex: 1;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  color: #999;
-  font-size: 16px;
-  cursor: pointer;
-  border: 0;
+	flex: 1;
+	height: 36px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+	color: #999;
+	font-size: 16px;
+	cursor: pointer;
+	border: 0;
 }
 .App-tab-header.active {
-  color: #000;
-  background-color: #fff;
+	color: #000;
+	background-color: #fff;
 }
 .App-main {
-  background-color: #fff;
-  flex: 1;
-  padding: 30px;
+	background-color: #fff;
+	flex: 1;
+	padding: 30px;
 }
 .App-ab-info {
-  text-align: left;
+	text-align: left;
 }
 .App-jira-info {
-  text-align: left;
-  color: #777;
+	text-align: left;
+	color: #777;
 }
 .App-form {
-  text-align: initial;
+	text-align: initial;
+	margin-top: 34px;
 }
 .App-input {
-  width: 100%;
-  padding: 10px;
-  font-size: 1.2em;
-  box-sizing: border-box;
-  border: thin solid #000;
-  margin-top: 4px;
+	width: 100%;
+	padding: 10px;
+	font-size: 1.2em;
+	box-sizing: border-box;
+	border: thin solid #000;
+	margin-top: 4px;
 }
 .App-submit {
-  margin-top: 16px;
-  width:100%;
-  background-color: #000;
-  color: #fff;
-  font-size: 1.1em;
-  padding: 10px;
-  cursor: pointer;
+	width: 100%;
+	background-color: #000;
+	color: #fff;
+	font-size: 1.1em;
+	padding: 10px;
+	cursor: pointer;
+}
+.App-cta-wrap {
+	display: flex;
+	align-items: center;
+	margin-top: 15px;
+	gap: 18px;
 }
 .App-submit-split-screen {
-  padding: 0;
-  background-color: white;
-  border-bottom: 2px solid #8484f7;
-  color: blue;
-  border-left: 0;
-  border-right: 0;
-  border-top: 0;
-  cursor: pointer;
-  margin-top: 18px;
+	padding: 0;
+	background-color: white;
+	border-bottom: 2px solid #8484f7;
+	color: blue;
+	border-left: 0;
+	border-right: 0;
+	border-top: 0;
+	cursor: pointer;
 }
 .App-split-block {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
 }
 .App-report-link {
-  margin-top: auto;
-  padding: 15px;
-  border-top: thin solid #ccc;
+	margin-top: auto;
+	padding: 15px;
+	border-top: thin solid #ccc;
+}
+.App-group-test-wrap {
+	display: flex;
+	gap: 8px;
+	margin: 10px 0;
+}
+.App-group-test-wrap > button {
+	flex: 1;
+	padding: 8px;
+	cursor: pointer;
+	background-color: #000;
+	color: #fff;
+	width: 60%;
 }
