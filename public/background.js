@@ -7,8 +7,7 @@ function handleSubmitAbTest(input) {
   
       // Construct the URL parameters
       const params = new URLSearchParams();
-      params.set('abtest', abTestId);
-      params.set('group', abTestGroup);
+      params.set(`abtest${abTestGroup}`, abTestId);
   
       // Get the active tab
       chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
