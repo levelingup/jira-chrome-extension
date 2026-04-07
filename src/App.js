@@ -164,7 +164,7 @@ class App extends React.Component {
 							...rightWindowPosition,
 							type: "normal",
 						});
-					}
+					},
 				);
 			});
 		} else {
@@ -180,7 +180,7 @@ class App extends React.Component {
 
 				// Modify the URL of the current tab
 				const url = new URL(tab.url);
-				url.searchParams.set("allTestsToGroup", group);
+				url.searchParams.set("alltests", group);
 
 				// Update the URL of the current tab
 				chrome.tabs.update(tab.id, { url: url.href });
