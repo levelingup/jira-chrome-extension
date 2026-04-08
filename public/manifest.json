@@ -2,14 +2,16 @@
 	"manifest_version": 3,
 	"name": "R Management Tool",
 	"author": "Andrew Liu",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"description": "Jira tasks and AB Tests",
 	"icons": {},
 	"action": {
 		"default_popup": "index.html",
 		"default_title": "Management Tool"
 	},
-	"permissions": ["activeTab"],
+	"permissions": [
+		"activeTab"
+	],
 	"content_security_policy": {
 		"extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';",
 		"sandbox": "sandbox allow-scripts allow-forms allow-popups allow-modals; script-src 'self' 'unsafe-inline' 'unsafe-eval'; child-src 'self';"
