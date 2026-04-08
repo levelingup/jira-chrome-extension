@@ -97,6 +97,8 @@ class App extends React.Component {
 				// Modify the URL of the current tab
 				const url = new URL(tab.url);
 				url.searchParams.set(`abtest${abTestGroup}`, abTestId);
+				url.searchParams.set("abtest", abTestId);
+				url.searchParams.set("group", abTestGroup);
 
 				// Update the URL of the current tab
 				chrome.tabs.update(tab.id, { url: url.href });
@@ -144,6 +146,8 @@ class App extends React.Component {
 				const currentTab = currentWindow.tabs.find((tab) => tab.active);
 				const url = new URL(currentTab.url);
 				url.searchParams.set(`abtest${group}`, abTestId);
+				url.searchParams.set("abtest", abTestId);
+				url.searchParams.set("group", group);
 
 				// Update the URL of the current tab
 				chrome.tabs.update(currentTab.id, { url: url.href });
@@ -156,6 +160,8 @@ class App extends React.Component {
 						// Create the right window
 						const rightUrl = new URL(currentTab.url);
 						rightUrl.searchParams.set(`abtest${oppositeGroup}`, abTestId);
+						rightUrl.searchParams.set("abtest", abTestId);
+						rightUrl.searchParams.set("group", oppositeGroup);
 						chrome.windows.create({
 							url: rightUrl.href,
 							...rightWindowPosition,
