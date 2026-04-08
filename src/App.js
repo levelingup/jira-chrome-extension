@@ -184,6 +184,7 @@ class App extends React.Component {
 				// Modify the URL of the current tab
 				const url = new URL(tab.url);
 				url.searchParams.set("alltests", group);
+				url.searchParams.set("allTestsToGroup", group);
 
 				// Update the URL of the current tab
 				chrome.tabs.update(tab.id, { url: url.href });
