@@ -100,6 +100,10 @@ class App extends React.Component {
 				url.searchParams.set("abtest", abTestId);
 				url.searchParams.set("group", abTestGroup);
 
+				// Strip all-tests params since we're setting a specific test
+				url.searchParams.delete("alltests");
+				url.searchParams.delete("allTestsToGroup");
+
 				// Update the URL of the current tab
 				chrome.tabs.update(tab.id, { url: url.href });
 			}
@@ -149,6 +153,10 @@ class App extends React.Component {
 				url.searchParams.set("abtest", abTestId);
 				url.searchParams.set("group", group);
 
+				// Strip all-tests params since we're setting a specific test
+				url.searchParams.delete("alltests");
+				url.searchParams.delete("allTestsToGroup");
+
 				// Update the URL of the current tab
 				chrome.tabs.update(currentTab.id, { url: url.href });
 
@@ -162,6 +170,10 @@ class App extends React.Component {
 						rightUrl.searchParams.set(`abtest${oppositeGroup}`, abTestId);
 						rightUrl.searchParams.set("abtest", abTestId);
 						rightUrl.searchParams.set("group", oppositeGroup);
+
+						// Strip all-tests params since we're setting a specific test
+						rightUrl.searchParams.delete("alltests");
+						rightUrl.searchParams.delete("allTestsToGroup");
 						chrome.windows.create({
 							url: rightUrl.href,
 							...rightWindowPosition,
@@ -185,6 +197,12 @@ class App extends React.Component {
 				const url = new URL(tab.url);
 				url.searchParams.set("alltests", group);
 				url.searchParams.set("allTestsToGroup", group);
+
+				// Strip specific ab test params since we're setting all tests
+				url.searchParams.delete("abtest");
+				url.searchParams.delete("abtesta");
+				url.searchParams.delete("abtestb");
+				url.searchParams.delete("group");
 
 				// Update the URL of the current tab
 				chrome.tabs.update(tab.id, { url: url.href });
