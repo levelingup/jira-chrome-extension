@@ -2,7 +2,7 @@
 	"manifest_version": 3,
 	"name": "R Management Tool",
 	"author": "Andrew Liu",
-	"version": "1.2.1",
+	"version": "1.2.2",
 	"description": "Jira tasks and AB Tests",
 	"icons": {},
 	"action": {
